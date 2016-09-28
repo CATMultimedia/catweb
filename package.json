@@ -1,0 +1,22 @@
+{
+  "name": "catweb",
+  "version": "2.0.0",
+  "description": "Website for the Colegio Americano de Torreón.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CATMultimedia/catweb.git"
+  },
+  "author": "CAT Multimedia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CATMultimedia/catweb/issues"
+  },
+  "homepage": "https://github.com/CATMultimedia/catweb#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
