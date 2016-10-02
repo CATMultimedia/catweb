@@ -1,5 +1,5 @@
 # catweb
-Website for the Colegio Americano de Torreón.
+Website for the Colegio Americano de Torreón.<br>
 <img src="http://vikki.github.io/presentations/jsday.it/images/inspectocat.png" alt="A cat." width="300px" height="auto"/>
 
 ## Testing Instructions
