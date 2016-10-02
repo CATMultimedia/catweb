@@ -1,6 +1,6 @@
 # catweb
 Website for the Colegio Americano de Torreón.
-<img src="http://vikki.github.io/presentations/jsday.it/images/inspectocat.png" alt="A cat." style="width: 300px; height: auto;"/>
+<img src="http://vikki.github.io/presentations/jsday.it/images/inspectocat.png" alt="A cat." width="300px" height="auto"/>
 
 ## Testing Instructions
 1. Install [Node.js](https://nodejs.org).
