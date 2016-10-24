@@ -7,7 +7,7 @@ var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
 
 gulp.task('sass', function() {
-    return gulp.src('src/sass/*.scss')
+    return gulp.src('src/sass/main.scss')
         .pipe(sass())
         .pipe(autoprefixer({ browsers: ['last 3 versions'] }))
         .pipe(cleanCSS())
