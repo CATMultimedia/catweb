@@ -1,26 +1,26 @@
 {
-  "name": "catweb",
-  "version": "2.0.0",
-  "description": "Website for the Colegio Americano de Torreón.",
-  "main": "gulpfile.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CATMultimedia/catweb.git"
-  },
-  "author": "CAT Multimedia",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CATMultimedia/catweb/issues"
-  },
-  "homepage": "https://github.com/CATMultimedia/catweb#readme",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean-css": "^2.0.13",
-    "gulp-file-include": "^1.0.0",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
-    "pump": "^1.0.1"
-  }
+    "name": "catweb",
+    "version": "2.0.0",
+    "description": "Website for the Colegio Americano de Torreón.",
+    "main": "gulpfile.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CATMultimedia/catweb.git"
+    },
+    "author": "CAT Multimedia",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/CATMultimedia/catweb/issues"
+    },
+    "homepage": "https://github.com/CATMultimedia/catweb#readme",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-clean-css": "^2.0.13",
+        "gulp-concat": "^2.6.1",
+        "gulp-file-include": "^1.0.0",
+        "gulp-imagemin": "^3.0.3",
+        "gulp-sass": "^2.3.2",
+        "gulp-uglify": "^2.0.0"
+    }
 }
