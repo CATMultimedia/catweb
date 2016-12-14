@@ -8,3 +8,8 @@ Website for the Colegio Americano de Torreón.<br>
 3. Run `npm install` from the project's root directory.
 4. Run `gulp` from the project's root directory.
 5. Open `build/index.html` in your favorite web browser.
+
+## Collaborators
+* [alonsofedz](https://github.com/alonsofedz)
+* [ValenteAlvarez](https://github.com/ValenteAlvarez)
+* [csaltrev](https://github.com/csaltrev)
