@@ -5,6 +5,7 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
+var fileInclude = require('gulp-file-include');
 
 gulp.task('sass', function() {
     return gulp.src('src/sass/main.scss')
@@ -23,13 +24,18 @@ gulp.task('uglify-js', function() {
 });
 
 gulp.task('html', function() {
-	return gulp.src('src/index.html').pipe(gulp.dest('build'));
+  return gulp.src(['src/index.html'])
+    .pipe(fileInclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('build'));
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['sass', 'uglify-js', 'html'], function() {
 	gulp.watch('src/sass/*.scss', ['sass']);
 	gulp.watch('src/js/*.js', ['uglify-js']);
-	gulp.watch('src/index.html', ['html']);
+	gulp.watch(['src/index.html', 'src/partials/*.html'], ['html']);
 	gulp.src('src/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('build/img'));
