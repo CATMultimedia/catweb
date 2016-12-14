@@ -1,0 +1,31 @@
+.blog {
+	position: relative;
+	padding: 20px 50px 0 50px;
+
+	> h1 {
+		font-size: 48px;
+		margin-bottom: 40px;
+		color: red;
+		line-height: 1em;
+	}
+
+	.uk-article-title {
+		margin-bottom: 0;
+		font-size: 32px;
+	}
+
+	.article-date {
+		margin-top: 0;
+	}
+
+	.uk-article-lead {
+		margin-bottom: 70px;
+	}
+
+	a {
+		position: absolute;
+		right: 10px;
+		bottom: 20px;
+		color: red;
+	}
+}
