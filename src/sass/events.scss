@@ -1,0 +1,106 @@
+/********* Events Header ********/
+
+.events-header {
+    background-color: darkblue;
+    padding: 10px;
+    .events-header-text {
+        color: whitesmoke;
+        margin: 0;
+    }
+}
+
+
+/********* Events ********/
+
+.events {
+    .events-item {
+        border-left: 8px solid orange;
+        padding: 10px 10px 5px 10px;
+        p {
+            margin: 0;
+        }
+        .event-date {
+            margin: 0 15px 0 5px;
+            font-size: 2.5rem;
+            span {
+                font-size: 1.5rem;
+            }
+        }
+        .event-stack {
+            .event-place {
+                font-style: italic;
+            }
+        }
+        .event-start {
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    }
+}
+
+
+/********* Events Link ********/
+
+.events-all {
+    background-color: red;
+    padding: 20px;
+    .events-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: whitesmoke;
+        font-size: 2.2rem;
+    }
+    .events-link:hover {
+        text-decoration: none;
+    }
+}
+
+
+/********* >= 768px ********/
+
+@media screen and (min-width: 768px) {
+    .events-section {
+        flex-flow: row wrap;
+        .events-header {
+            order: 0;
+            flex: 2 1 65%;
+        }
+        .events {
+            order: 2;
+            flex: 1 1 100%;
+            flex-flow: row wrap;
+            .events-item {
+                flex: 1 1 40%;
+            }
+        }
+        .events-all {
+            order: 1;
+            flex: 1 2 25%;
+            .events-link {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+
+/********* >= 1200px ********/
+
+@media screen and (min-width: 1200px) {
+    .events-section {
+        .events {
+            .events-item {
+                flex: 1 1 23%;
+                border-left: none;
+                border-bottom: 8px solid orange;
+                border-right: 1px solid lightgray;
+            }
+        }
+        .events-all {
+            .events-link {
+                font-size: 2.2rem;
+            }
+        }
+    }
+}
