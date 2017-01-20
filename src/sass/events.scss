@@ -12,9 +12,25 @@
 
 /********* Events ********/
 
+.event-hs {
+    border-left: 8px solid red;
+}
+
+.event-ech {
+    border-left: 8px solid orange;
+}
+
+.event-cat {
+    border-left: 8px solid purple;
+}
+
+.event-es {
+    border-left: 8px solid blue;
+}
+
 .events {
     .events-item {
-        border-left: 8px solid orange;
+        border-bottom: 1px solid lightgray;
         padding: 10px 10px 5px 10px;
         p {
             margin: 0;
@@ -92,9 +108,6 @@
         .events {
             .events-item {
                 flex: 1 1 23%;
-                border-left: none;
-                border-bottom: 8px solid orange;
-                border-right: 1px solid lightgray;
             }
         }
         .events-all {
