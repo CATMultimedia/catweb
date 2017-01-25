@@ -12,6 +12,7 @@
 
         function getEvents(ID) {
             const eventsDiv = document.querySelector('.events');
+            let events = [];
             $.ajax({
                 type: 'GET',
                 url: encodeURI(`https://www.googleapis.com/calendar/v3/calendars/${ID}/events?key=${API_KEY}`),
@@ -19,14 +20,14 @@
                 success(res) {
                     
                     for (let event of res.items) {
-                        console.log(event);
+                        //console.log(event);
                         const testDate = event.start.dateTime ? 
                             new Date(event.start.dateTime) : new Date(event.start.date);
 
-                        const limitDate = new Date();
-                        limitDate.setDate(limitDate.getDate() + 30);
+                        // const limitDate = new Date();
+                        // limitDate.setDate(limitDate.getDate() + 30);
 
-                        if (testDate >= Date.now() && testDate <= limitDate) {
+                        if (testDate >= Date.now()) {
 
                             let startDate = null;
                             let allDay = false;
@@ -37,7 +38,13 @@
                                 allDay = true;
                             } else if (event.start.dateTime) startDate = new Date(event.start.dateTime);
 
-                            eventsDiv.appendChild(eventItem.createContainer(event, startDate, allDay));
+                            // eventsDiv.appendChild(eventItem.createContainer(event, startDate, allDay));
+
+                            const modEvent = event;
+                            modEvent.startDate = startDate;
+                            modEvent.allDay = allDay;
+                            events.push(modEvent);
+                            console.log(events);
                         }
                     }
                 },
@@ -46,6 +53,10 @@
                     eventsDiv.textContent = "Something went wrong when fetching events.";
                 }
             });
+
+            // for (let i = 0; i < 4; i++) {
+            //     console.log(events[i]);
+            // }
         }
 
         const format = {
