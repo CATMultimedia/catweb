@@ -16,7 +16,7 @@ const UIKitScripts = [
 
 // **Created Only** scripts to concatenate and minify.
 const scripts = [
-    'src/js/main.js'
+    'src/js/events.js'
     ];
 
 gulp.task('sass', () => {
