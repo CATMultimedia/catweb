@@ -1,0 +1,130 @@
+//mobile styling
+
+//mobile functionality
+
+
+
+//desktop styling
+.resources-nav {
+	.resources-ul {
+		background-color: rgb(62, 50, 200);
+		text-align: center;
+		float: right;
+		padding: 0.5rem;
+		height: auto;
+		padding: 0;
+		margin: 0;
+		li {
+			list-style: none;
+			text-decoration: inherit;
+			a {
+				display: inline-block;
+				height: auto;
+				float: none;
+				text-align: center;
+				color: white;
+				line-height: normal;
+				padding: 0.85rem;
+				position: static;
+				span {
+					font-size: 2.7rem;
+				}
+			}
+		}
+	}
+	.quicklinks-open {
+		.quicklinks-dropdown-container {
+			position: absolute;
+			left: 0;
+			background-color: #222;
+			color: blue;
+		}
+	}
+}
+
+
+.main-menu-nav {
+	.main-menu-ul {
+		//style
+		text-transform: uppercase;
+		background-color: red;
+		font-weight: 900;
+		.main-link {
+			a {
+				color: white;
+			}
+		}
+
+		.main-link:hover > a {
+			color: white;
+			background-color: rgb(215, 0, 0);
+		}
+
+		.main-menu-dropdown-container {
+			background-color: white;
+			color: red;
+			font-weight: normal;
+		}
+
+		.main-menu-dropdown {
+			li {
+				a {
+					color: red;
+				}
+				a:hover {
+					background-color: #e9e9e9;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+
+//desktop functionality
+.main-menu-ul {
+	display: flex;
+	width: 100%;
+	position: static;
+	justify-content: center;
+	align-items: center;
+	.main-link {
+		position: static;
+	}
+
+	.main-menu-dropdown-container {
+		max-height: 0;
+		width: 100%;
+		z-index: 970;
+		overflow: hidden;
+		transition: max-height 0.3s ease-in;
+	}
+	.main-link:hover .main-menu-dropdown-container {
+		max-height: 4rem;
+	}
+
+	.main-menu-dropdown-container {
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		left: 0;
+	}
+
+	.main-menu-dropdown {
+		padding: 0;
+		margin: 0;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		li {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			a {
+				display: inline-block;
+				padding: 0.8rem;
+				margin: 0;
+			}
+		}
+	}
+}
