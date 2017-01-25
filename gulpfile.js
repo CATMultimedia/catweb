@@ -1,29 +1,36 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
-var cleanCSS = require('gulp-clean-css');
-var imagemin = require('gulp-imagemin');
-var fileInclude = require('gulp-file-include');
-var concat = require('gulp-concat');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const cleanCSS = require('gulp-clean-css');
+const imagemin = require('gulp-imagemin');
+const fileInclude = require('gulp-file-include');
+const concat = require('gulp-concat');
+const babel = require('gulp-babel');
 
-// **UIKit** scripts to concatenate and minify
-var UIKitScripts = ['src/uikit/js/uikit.js', 'src/uikit/js/components/slideshow.js'];
+// **UIKit Only** scripts to concatenate and minify.
+const UIKitScripts = [
+    'src/uikit/js/uikit.js', 
+    'src/uikit/js/components/slideshow.js'
+    ];
 
-// **Other** scripts to concatenate and minify
-var scripts = ['src/js/main.js'];
+// **Created Only** scripts to concatenate and minify.
+const scripts = [
+    'src/js/main.js'
+    ];
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
     return gulp.src('src/sass/main.scss')
         .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 3 versions']
         }))
         .pipe(cleanCSS())
+        .pipe(concat('main.min.css'))
         .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('uk-scripts', function() {
+gulp.task('uk-scripts', () => {
     return gulp.src(UIKitScripts)
         .pipe(concat('uikit.min.js'))
         .pipe(gulp.dest('build/js'))
@@ -31,15 +38,18 @@ gulp.task('uk-scripts', function() {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
     return gulp.src(scripts)
         .pipe(concat('main.min.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(gulp.dest('build/js'))
         .pipe(uglify())
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('html', function() {
+gulp.task('html', () => {
     return gulp.src(['src/index.html'])
         .pipe(fileInclude({
             prefix: '@@',
@@ -48,13 +58,13 @@ gulp.task('html', function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('img', function() {
+gulp.task('img', () => {
     return gulp.src('src/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('build/img'));
 });
 
-gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html', 'img'], function() {
+gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html', 'img'], () => {
     gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/js/*.js', ['scripts']);
     gulp.watch(['src/index.html', 'src/partials/*.html'], ['html']);
