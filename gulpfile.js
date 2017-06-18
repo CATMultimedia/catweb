@@ -50,7 +50,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('html', () => {
-    return gulp.src(['src/index.html'])
+    return gulp.src(['src/index.html', 'src/calendar.html'])
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
@@ -64,7 +64,7 @@ gulp.task('img', () => {
         .pipe(gulp.dest('build/img'));
 });
 
-gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html', 'img'], () => {
+gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html'], () => {
     gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/js/*.js', ['scripts']);
     gulp.watch(['src/index.html', 'src/partials/*.html'], ['html']);

@@ -36,13 +36,14 @@
                             new Date(event.start.dateTime) : new Date(event.start.date);
 
                         if (testDate >= Date.now()) {
-
+                           
                             let startDate = null;
                             let allDay = false;
 
                             if (event.start.date) {
                                 let rawDate = new Date(event.start.date).toISOString();
                                 startDate = new Date(rawDate);
+                                startDate.setDate(startDate.getDate() + 1);
                                 allDay = true;
                             } else if (event.start.dateTime) startDate = new Date(event.start.dateTime);
 
