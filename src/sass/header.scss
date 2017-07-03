@@ -17,6 +17,9 @@
 		position: absolute;
 		top: 0;
 		width: 100%;
+		#button-menu {
+			display: none;
+		}
 		#cat-logo {
 			display: inline-block;
 			position: absolute;
@@ -27,7 +30,7 @@
 			display: inline-block;
 			z-index: 1000;
 			position: absolute;
-			top: 6rem;
+			top: 5.5rem;
 			left: 13rem;
 			width: 33rem;
 			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
@@ -149,7 +152,13 @@
 			text-align: center;
 			li {
 				a {
-					padding: 0 1.3rem;
+					padding: 0 1rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					span {
+						font-size: 2rem;
+					}
 				}
 			}
 		}
@@ -256,6 +265,11 @@
 
 //mobile rules
 @media all and (max-width: 835px){
+	body.open-menu {
+		max-height: 100vh;
+		overflow: hidden;
+	}
+
 	.header-slideshow {
 		height: 350px !important;
 	}
@@ -263,7 +277,15 @@
 	.main-header {
 		position: absolute;
 		top: 0;
-
+		#button-menu {
+			position: absolute;
+			right: 1rem;
+			font-size: 2.5rem;
+			color: white;
+			text-shadow: 1px 1px 10px rgba(0,0,0,0.95);
+			top: 1rem;
+			z-index: 20000;
+		}
 		#cat-logo {
 			display: block;
 			margin: 15px auto;
@@ -281,12 +303,14 @@
 			top: 0;
 			height: 100vh;
 			width: 100%;
-			overflow: hidden;
-			.nav-container {		
+			overflow-y: hidden;
+			overflow-x: hidden;
+			.nav-container {	
+				transition: transform 0.4s ease;
+				min-height: 100vh;	
 				background-color: #fff;
 				position: relative;
-				// left: 80%;
-
+				transform: translateX(100%);
 				.resources-nav {
 					.quicklinks-title {
 						font-size: 1.9rem;
@@ -323,26 +347,43 @@
 						}
 						.quicklinks-open-button {
 							flex-basis: 100%;
-							.resources-link:hover ~ .quicklinks-dropdown-container, .quicklinks-dropdown-container:hover {
-								max-height: 16rem;
+							text-align: center;
+							background-color: rgba(10,26,106,0.9);
+							color: white;
+							text-transform: uppercase;
+							
+							.resources-link {
+								padding: 1.4rem 0.5rem;
+								font-size: 1.65rem;
+								vertical-align: middle;
 							}
+
+							.ql-break {
+								display: none;
+							}
+
 							.quicklinks-dropdown-container {
+								background-color: #fff;
+								color: #0A1A6A;
 								max-height: 0;
 								overflow: hidden;
 								transform-origin: top;
+								transition: max-height 0.3s ease;
 								li {
 									a {
+										font-size: 1.5rem;
 										width: 100%;
 										display: inline-block;
-										padding: 1.2rem 0;
+										padding: 1.5rem 0;
 									}
 								}
 							}
-						}
-						.quicklinks-open-button:hover {
-							color: white;
-							background-color: #0A1A6A;
 							
+						}
+						.quicklinks-open-button:hover {	
+							.quicklinks-dropdown-container {
+								max-height: 17.7rem;
+							}		
 						}
 					}
 				}
@@ -372,21 +413,40 @@
 						.main-link {
 							width: 100%;
 							text-transform: uppercase;
-							font-size: 1.2rem;
+							font-size: 1.5rem;
 							color: #A31616;
 							font-weight: bold;
+							transition: all 0.3s ease;
 							a {
 								display: inline-block;
-								padding: 1rem 0;
+								padding: 1.1rem 0;
 							}
-							.main-menu-dropddown-container {
+							.main-menu-dropdown-container {
 								max-height: 0;
+								font-size: 1.2rem;
+								background-color: #fff;
+								color: #BA0000;
+								transition: max-height 0.3s ease;
 								overflow: hidden;
+								font-weight: normal;
 							}
+						}
+						.main-link:hover {		
+							background-color: #BA0000;
+							color: white;
+						}
+						.main-link:hover .main-menu-dropdown-container {
+							max-height: 23.5rem;
 						}
 					}
 				}
 			}
+			.nav-container.open-menu {
+				transform: translateX(0);
+			}
+		}
+		.nav-wrapper.open-menu {
+			overflow-y: scroll;
 		}
 	}
 }
