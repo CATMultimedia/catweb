@@ -16,7 +16,9 @@ const UIKitScripts = [
 
 // **Created Only** scripts to concatenate and minify.
 const scripts = [
-    'src/js/events.js'
+    'src/js/events.js',
+    'src/js/main.js',
+    'src/js/header.js'
     ];
 
 gulp.task('sass', () => {
@@ -64,7 +66,16 @@ gulp.task('img', () => {
         .pipe(gulp.dest('build/img'));
 });
 
+<<<<<<< HEAD
 gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html'], () => {
+=======
+gulp.task('fonts', () => {
+    return gulp.src('src/fonts/*')
+        .pipe(gulp.dest('build/fonts'));
+});
+
+gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html', 'img', 'fonts'], () => {
+>>>>>>> origin/header
     gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/js/*.js', ['scripts']);
     gulp.watch(['src/index.html', 'src/partials/*.html'], ['html']);
