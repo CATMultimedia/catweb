@@ -13,6 +13,10 @@
 
 //desktop rules
 @media all and (min-width: 835px){
+	.header-slideshow {
+		height: 25rem !important;
+	}
+
 	.main-header {
 		position: absolute;
 		top: 0;
@@ -271,7 +275,7 @@
 	}
 
 	.header-slideshow {
-		height: 350px !important;
+		height: 220px !important;
 	}
 	
 	.main-header {
