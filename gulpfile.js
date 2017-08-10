@@ -51,13 +51,67 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('html', () => {
-    return gulp.src(['src/index.html', 'src/calendar.html'])
+gulp.task('index-layout', () => {
+    return gulp.src('src/index.html')
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
         .pipe(gulp.dest('build'));
+});
+
+gulp.task('about-layouts', () => {
+        gulp.src(['src/about/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/about'));
+});
+
+gulp.task('academics-layouts', () => {
+        gulp.src(['src/academics/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/academics'));
+});
+
+gulp.task('campus-layouts', () => {
+        gulp.src(['src/campus/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/campus'));
+});
+
+gulp.task('join-layouts', () => {
+        gulp.src(['src/join/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/join'));
+});
+
+gulp.task('quicklinks-layouts', () => {
+        gulp.src(['src/quicklinks/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/quicklinks'));
+});
+
+gulp.task('resources-layouts', () => {
+        gulp.src(['src/resources/*.html'])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('build/resources'));
 });
 
 gulp.task('img', () => {
@@ -71,8 +125,17 @@ gulp.task('fonts', () => {
         .pipe(gulp.dest('build/fonts'));
 });
 
-gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'html', 'img', 'fonts'], () => {
+gulp.task('default', ['sass', 'uk-scripts', 'scripts', 'index-layout', 'about-layouts', 'academics-layouts', 
+                    'campus-layouts', 'join-layouts', 'quicklinks-layouts', 'resources-layouts', 
+                    'img', 'fonts'], () => {
     gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/js/*.js', ['scripts']);
-    gulp.watch(['src/index.html', 'src/partials/*.html'], ['html']);
+    gulp.watch(['src/index.html','src/partials/*.html', 'src/academics/*.html', 'src/campus/*.html', 'src/join/*.html', 'src/quicklinks/*.html', 'src/resources/*.html', ], ['index-layout']);
+    
+    gulp.watch(['src/about/*.html', 'src/partials/*.html'], ['about-layouts']);
+    gulp.watch(['src/academics/*.html', 'src/partials/*.html'], ['academics-layouts']);
+    gulp.watch(['src/campus/*.html', 'src/partials/*.html'], ['campus-layouts']);
+    gulp.watch(['src/join/*.html', 'src/partials/*.html'], ['join-layouts']);
+    gulp.watch(['src/quicklinks/*.html', 'src/partials/*.html'], ['quicklinks-layouts']);
+    gulp.watch(['src/resources/*.html', 'src/partials/*.html'], ['resources-layouts']);
 });
