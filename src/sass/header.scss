@@ -12,7 +12,7 @@
 }
 
 //desktop rules
-@media all and (min-width: 835px){
+@media all and (min-width: 935px){
 	.header-slideshow {
 		height: 25rem !important;
 	}
@@ -28,11 +28,11 @@
 			display: inline-block;
 			position: absolute;
 			width: 13rem;
-			z-index: 1000;
+			z-index: 100;
 		}
 		#cat-name {
 			display: inline-block;
-			z-index: 1000;
+			z-index: 10;
 			position: absolute;
 			top: 5.5rem;
 			left: 13rem;
@@ -51,7 +51,7 @@
 		}
 
 		.resources-ul {
-			z-index: 40;
+			z-index: 400;
 			display: flex;
 			position: relative;
 			justify-content: center;
@@ -196,6 +196,7 @@
 				background-color: white;
 				color: #BA0000;
 				font-weight: normal;
+				z-index: 101;
 			}
 
 			.main-menu-dropdown {
@@ -268,9 +269,9 @@
 }
 
 //mobile rules
-@media all and (max-width: 835px){
-	body.open-menu {
-		max-height: 100vh;
+@media all and (max-width: 935px){
+	.page-wrapper.open-menu {
+		height: 100vh;
 		overflow: hidden;
 	}
 
@@ -307,8 +308,7 @@
 			top: 0;
 			height: 100vh;
 			width: 100%;
-			overflow-y: hidden;
-			overflow-x: hidden;
+			overflow: hidden;
 			.nav-container {	
 				transition: transform 0.4s ease;
 				min-height: 100vh;	
@@ -435,11 +435,14 @@
 								font-weight: normal;
 							}
 						}
-						.main-link:hover {		
+						//changed to be activated alongside JS
+						.main-link.open-dropdown {		
 							background-color: #BA0000;
 							color: white;
 						}
-						.main-link:hover .main-menu-dropdown-container {
+
+						// changed to class 'open-dropdown' & JS instead of :hover
+						.main-link.open-dropdown .main-menu-dropdown-container {
 							max-height: 23.5rem;
 						}
 					}
