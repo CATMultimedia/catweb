@@ -59,9 +59,9 @@
 
 .events-all {
     background-color: red;
-    padding: 20px;
     .events-link {
         display: block;
+        padding: 20px;
         width: 100%;
         height: 100%;
         color: whitesmoke;
@@ -107,7 +107,7 @@
     .events-section {
         .events {
             .events-item {
-                flex: 1 1 23%;
+                flex: 1 1 22%;
             }
         }
         .events-all {
